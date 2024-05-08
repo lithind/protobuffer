@@ -34,7 +34,8 @@ public class ProtoBufController {
 
     @Autowired
     private ProtoBufService protoBufService;
-//    @GetMapping()
+
+    //    @GetMapping()
 //    public String getProducts() {
 //        Product.product product = protoBufService.getProducts();
 //        System.out.println(product.toByteArray().length);
@@ -43,11 +44,11 @@ public class ProtoBufController {
 ////
 //        return Base64.getEncoder().encodeToString(product.toByteArray());
 //    }
-    @GetMapping(value = "getProductsOriginal",produces = "application/x-protobuf")
+    @GetMapping(value = "getProductsOriginal", produces = "application/x-protobuf")
     public byte[] getProductsOriginal() throws IOException {
 
-        System.out.println( Arrays.toString(protoBufService.getProducts().toByteArray()));
-        return  protoBufService.getProducts().toByteArray();
+        System.out.println(Arrays.toString(protoBufService.getProducts().toByteArray()));
+        return protoBufService.getProducts().toByteArray();
 //        System.out.println(contentType);
 //        Product.product product = protoBufService.getProducts();
 //        return product.toByteArray();
@@ -70,21 +71,20 @@ public class ProtoBufController {
 
     }
 
-
-
     @GetMapping(value = "/getString")
     public String getString() {
         return "Hello Lithin";
     }
+
     @GetMapping(value = "/git")
-    public  void  getGIT() throws IOException, InterruptedException {
+    public void getGIT() throws IOException, InterruptedException {
         String baseUrl = "https://api.github.com/search/code";
 //        String user = "hishanamuhammed"; // GitHub username
 //        String repository = "spring-demo"; // Repository name
         String keyword = "LendKey";
 
         //String apiUrl = String.format("%s?q=%s+repo:%s/%s", baseUrl, keyword, user, repository);
-        String apiUrl = String.format("%s?q=%s"+"&per_page=100&page=1", baseUrl, keyword);
+        String apiUrl = String.format("%s?q=%s" + "&per_page=100&page=1", baseUrl, keyword);
 
         String accessToken = token;
 
@@ -100,8 +100,7 @@ public class ProtoBufController {
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        if (response.statusCode() == 200)
-        {
+        if (response.statusCode() == 200) {
             String responseBody = response.body();
             processSearchResults(responseBody);
             int count = processSearchResults(responseBody);
@@ -114,6 +113,7 @@ public class ProtoBufController {
 
 
     }
+
     private static int processSearchResults(String responseBody) {
         int count = 0;
         // Parse JSON response and extract file paths containing the keyword
@@ -134,8 +134,10 @@ public class ProtoBufController {
         }
         return count;
     }
+
     static class SearchResult {
         private List<SearchItem> items;
+
         public List<SearchItem> getItems() {
             return items;
         }
@@ -143,6 +145,7 @@ public class ProtoBufController {
 
     static class SearchItem {
         private String html_url;
+
         public String getHtmlUrl() {
             return html_url;
         }
