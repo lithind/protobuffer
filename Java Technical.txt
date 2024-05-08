@@ -1,0 +1,58 @@
+Constructor
+------------
+when called constructor initialize the object.Used to initialize the object.Every time an object is created using the new() keyword, at least one constructor is called.
+It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
+
+Static keyword
+---------------
+The static keyword in Java is used for memory management mainly.
+cant override
+
+this keyword
+------------
+This is a reference variable that refers to the current object.
+-> to refer current class instance variable
+-> this: to invoke current class method
+
+super keyword
+-------------
+The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+We can use super keyword to access the data member or field of parent class.
+
+final keyword
+-------------
+If you make any variable as final, you cannot change the value of final variable(It will be constant).
+If you make any method as final, you cannot override it.
+If you make any class as final, you cannot extend it.
+
+abstract class
+--------------
+to implement abstraction concept.
+It can have abstract and non-abstract methods (method with the body).
+
+Interface	
+---------
+to implement abstraction concept.
+also for multiple inheritance.
+
+default and static method in interface since java 8.
+marker interface- has no data member and method ( eg: Serializable, Cloneable, Remote, etc.)Their purpose is to "mark" or "tag" a class to provide some information about it to the runtime environment or to other parts of the program.
+
+
+String
+--------
+String
+String buffer
+string builder
+
+
+Exception handling
+------------------
+mechanism to handle the runtime errors so that the normal flow of the application can be maintained.
+
+Thread
+------
+There are two ways to create a thread:
+
+By extending Thread class
+By implementing Runnable interface.
