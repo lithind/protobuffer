@@ -1,0 +1,15 @@
+syntax = "proto3";
+package product;
+option java_package = "com.aspiresys.protobufdemo.entity";
+option java_outer_classname = "Product";
+
+message product {
+  string title = 1;
+  string description = 2;
+  string price=3;
+
+}
+message  prodcutList
+{
+  repeated  product productList=1;
+}
